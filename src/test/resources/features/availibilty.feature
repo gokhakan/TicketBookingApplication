@@ -1,23 +1,22 @@
 Feature: Checking flights
 
-  @wip
-  Scenario: Going to Flight Booking App
-    Given I am on the page
+
+  Background: : Going to Flight Booking App
+    Given I am on SkyScanner login page
 
 
 
-  Scenario Outline: Unavailable flights
-  Given I am on SkyScanner website
-  When I search for direct from <location 1> and <location 2>  to Leeds Bradford Airport
-  Then No flight available should appear
+  Scenario Outline: Available flights
+  When I search for direct flight from <location 1> and <location 2>  to London
+  Then Flights are available message should appear
     Examples:
-      | location1  |  | location 2 |
+      | location 1  |  | location 2 |
       | Humberside |  | Liverpool  |
       | Manchester |  | Doncaster  |
       | Bristol    |  | Birmingham |
 
-
-  Scenario Outline: Available flights
+  @wip
+  Scenario Outline: Available seats
     When I search for direct flights from <location 3>  to New York with <cost> , <class>, <date> and <airline>
     Then Window seat is available message should appear
     Examples:

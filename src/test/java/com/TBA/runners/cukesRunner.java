@@ -6,10 +6,11 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
+        monochrome = true,
         plugin = {"json:target/cucumber.json",
-                "html:target/default-html-reports"},
+               "html:target/default-html-reports"},
         features="src/test/resources/features",
-        glue="com/TBA/stepDefinitions",
+        glue="src/test/java/com/TBA/stepDefinitions",
         dryRun =true,
         strict = true,
         tags="@wip"
